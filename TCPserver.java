@@ -22,7 +22,6 @@ class TCPServer {
             while ((index = fileInput.read(bytes)) != -1) {
                 fileOutput.write(bytes, 0 ,index);
             }
-            double dvi = 1000.00;
             System.out.printf("%.2f second " ,(System.currentTimeMillis() - a)/1000.00 );
         }
     }
