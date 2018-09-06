@@ -11,18 +11,17 @@ class TCPServer {
             System.out.println("The server is waiting ");
             Socket connectionSocket = welcomeSocket.accept();
             Scanner inFromClient = new Scanner(connectionSocket.getInputStream());
-            //fileInput = new FileInputStream(inFromClient.nextLine());
+            fileInput = connectionSocket.getInputStream();
 
-            byte data = inFromClient.nextByte();
+            //byte data = inFromClient.nextByte();
             a = System.currentTimeMillis();
             fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/Movie.mp4");
 
             byte[] bytes = new byte[1000000000];
             //byte data = 0;
             int index;
-            fileOutput.write(data);
-            while ((data = inFromClient.nextByte()) != -1) {
-                fileOutput.write(data);
+            while ((index = fileInput.read(bytes)) != -1) {
+                fileOutput.write(bytes, 0 ,index);
             }
             System.out.println((System.currentTimeMillis() - a) / 1000 + " second");
             /*capitalizedSentence = clientSentence.toUpperCase() + '\n';

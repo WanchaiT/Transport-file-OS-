@@ -15,11 +15,8 @@ class TCPClient {
         int index;
         int data = 0;
         while ((index = file.read(bytes)) != -1) {
-            //outToServer.write(bytes ,0 ,index);
-            data += index;
-            System.out.println(data);
+            outToServer.write(bytes ,0 ,index);
         }
-        outToServer.writeBytes(String.valueOf(data));
 
 
         //modifiedSentence = inFromServer.nextLine();
