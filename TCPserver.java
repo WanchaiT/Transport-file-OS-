@@ -14,7 +14,7 @@ class TCPServer {
             fileInput = connectionSocket.getInputStream();
 
             a = System.currentTimeMillis();
-            fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/Movie.mp4");
+            fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/a.zip");
 
             byte[] bytes = new byte[1000000000];
             int index;

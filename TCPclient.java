@@ -5,7 +5,7 @@ class TCPClient {
     public static void main(String argv[]) throws Exception{
         long a = System.currentTimeMillis();
 
-        String path = "/Users/wanchairoot/Documents/517312 Operating Systems/Gifted.mp4";
+        String path = "/Users/wanchairoot/Documents/517312 Operating Systems/a.zip";
         InputStream file = new FileInputStream(path);
         byte[] bytes = new byte[1000000000];
         Socket clientSocket = new Socket("localhost", 49152);
