@@ -7,16 +7,16 @@ class TCPClient {
 
         String path = "/Users/wanchairoot/Documents/517312 Operating Systems/Gifted.mp4";
         InputStream file = new FileInputStream(path);
-        byte[] bytes = new byte[1000000000];
+        byte[] bytes = new byte[1024];
 
         Socket clientSocket = new Socket("localhost", 49152);
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         //Scanner inFromServer = new Scanner (clientSocket.getInputStream());
         int index;
-        /*while ((index = file.read(bytes)) != -1) {
+        while ((index = file.read(bytes)) != -1) {
             outToServer.write(bytes ,0 ,index);
-        }*/
-        outToServer.writeBytes(path);
+        }
+        //outToServer.writeBytes(path);
 
         System.out.println("out");
         //modifiedSentence = inFromServer.nextLine();
