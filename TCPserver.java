@@ -12,13 +12,15 @@ class TCPServer {
             Socket connectionSocket = welcomeSocket.accept();
             Scanner inFromClient = new Scanner(connectionSocket.getInputStream());
             //fileInput = new FileInputStream(inFromClient.nextLine());
+
+            byte data = inFromClient.nextByte();
             a = System.currentTimeMillis();
             fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/Movie.mp4");
 
             byte[] bytes = new byte[1000000000];
-            byte data = 0;
+            //byte data = 0;
             int index;
-
+            fileOutput.write(data);
             while ((data = inFromClient.nextByte()) != -1) {
                 fileOutput.write(data);
             }
