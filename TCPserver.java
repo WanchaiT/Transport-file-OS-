@@ -17,7 +17,6 @@ class TCPServer {
             fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/Movie.mp4");
 
             byte[] bytes = new byte[1000000000];
-            //byte data = 0;
             int index;
             while ((index = fileInput.read(bytes)) != -1) {
                 fileOutput.write(bytes, 0 ,index);
