@@ -14,6 +14,7 @@ class TCPClient {
         int data = 0;
         while ((index = file.read(bytes)) != -1) {
             outToServer.write(bytes ,0 ,index);
+            System.out.println(index);
         }
         clientSocket.close();
         System.out.printf("%.2f second " ,(System.currentTimeMillis() - a)/1000.00 );
