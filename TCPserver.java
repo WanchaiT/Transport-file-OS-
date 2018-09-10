@@ -15,7 +15,6 @@ class TCPServer {
             fileInput = new FileInputStream(path);
             System.out.println(fileInput);
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-            fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/a.zip");
             byte[] bytes = new byte[100000];
             int index;
             String req = inFromClient.nextLine();
@@ -29,12 +28,9 @@ class TCPServer {
                 continue;
             }
             System.out.printf("%.2f second " ,(System.currentTimeMillis() - a)/1000.00 );
-
+            connectionSocket.close();
             System.out.println("Finish");
-            if (scan.next().equals("exit")) {
-                connectionSocket.close();
-                System.exit(0);
-            }
+            
         }
     }
 }
