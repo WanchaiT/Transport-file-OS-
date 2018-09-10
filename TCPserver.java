@@ -16,14 +16,15 @@ class TCPServer {
             System.out.printf("%d second " ,(System.currentTimeMillis()));
             System.out.println(fileInput);
             fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/a.zip");
-            byte[] bytes = new byte[10000];
+            byte[] bytes = new byte[100000];
             int index;
+            System.out.print("wait data");
             while ((index = fileInput.read(bytes)) != -1) {
                 fileOutput.write(bytes ,0 ,index);
                 System.out.println(index);
-                System.out.printf("%d second " ,(System.currentTimeMillis()));
+                System.out.printf("in loop %d second " ,(System.currentTimeMillis()));
             }
-            System.out.printf("%d second " ,(System.currentTimeMillis()));
+            System.out.printf("out %d second " ,(System.currentTimeMillis()));
 
             System.out.println("Finish");
             if (scan.next().equals("exit")) {

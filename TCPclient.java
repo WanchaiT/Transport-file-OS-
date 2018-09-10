@@ -7,7 +7,7 @@ class TCPClient {
 
         String path = "/Users/wanchairoot/Documents/517312 Operating Systems/a.zip";
         InputStream file = new FileInputStream(path);
-        byte[] bytes = new byte[10000];
+        byte[] bytes = new byte[100000];
         Socket clientSocket = new Socket("localhost", 49153);
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         int index;
