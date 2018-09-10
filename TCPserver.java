@@ -17,9 +17,8 @@ class TCPServer {
             byte[] bytes = new byte[1000000000];
             int index;
             while ((index = fileInput.read(bytes)) != -1) {
-                fileOutput.write(bytes, 0 ,index);
+                fileOutput.write(bytes ,0 ,index);
             }
-
             System.out.println("Finish");
             if (scan.next().equals("exit")) {
                 connectionSocket.close();
