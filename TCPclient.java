@@ -3,20 +3,20 @@ import java.net.*;
 import java.util.*;
 class TCPClient {
     public static void main(String argv[]) throws Exception{
-        long a = System.currentTimeMillis();
-
-        String path = "/Users/wanchairoot/Documents/517312 Operating Systems/a.zip";
-        InputStream file = new FileInputStream(path);
-        byte[] bytes = new byte[1000000000];
+        Scanner scan = new Scanner(System.in);
+        OutputStream fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/a.zip");
+        byte[] bytes = new byte[100000];
+        String req = scan.next();
         Socket clientSocket = new Socket("localhost", 49153);
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+        outToServer.writeBytes(req + "\n");
+        InputStream fileInput = clientSocket.getInputStream();
         int index;
-        int data = 0;
-        while ((index = file.read(bytes)) != -1) {
-            outToServer.write(bytes ,0 ,index);
+        while ((index = fileInput.read(bytes)) != -1) {
+            fileOutput.write(bytes ,0 ,index);
             System.out.println(index);
         }
+        System.out.println("dd");
         clientSocket.close();
-        System.out.printf("%.2f second " ,(System.currentTimeMillis() - a)/1000.00 );
     }
  }
