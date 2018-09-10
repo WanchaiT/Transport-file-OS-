@@ -5,11 +5,12 @@ class TCPServer {
     public static void main(String argv[]) throws Exception{
         InputStream fileInput = null;
         OutputStream fileOutput = null;
-        ServerSocket welcomeSocket = new ServerSocket(49152);
+        ServerSocket welcomeSocket = new ServerSocket(49153);
         while(true) {
             System.out.println("The server is waiting ");
             Socket connectionSocket = welcomeSocket.accept();
             Scanner inFromClient = new Scanner(connectionSocket.getInputStream());
+            Scanner scan = new Scanner(System.in);
             fileInput = connectionSocket.getInputStream();
             System.out.println(fileInput);
             fileOutput = new FileOutputStream("/Users/wanchairoot/Documents/517312 Operating Systems/fileFromServer/a.zip");
@@ -18,7 +19,12 @@ class TCPServer {
             while ((index = fileInput.read(bytes)) != -1) {
                 fileOutput.write(bytes, 0 ,index);
             }
+
             System.out.println("Finish");
+            if (scan.next().equals("exit")) {
+                connectionSocket.close();
+                System.exit(0);
+            }
         }
     }
 }
